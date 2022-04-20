@@ -12,7 +12,7 @@ body {
     width: 50%;
     height: 100vh;
     position: relative;
-    transition: width 2s;
+    transition: width cubic-bezier(0.22, 0.61, 0.36, 1) 2s;
     transform: skewX(347deg);
     display: flex;
     justify-content: space-evenly;
@@ -42,17 +42,19 @@ body {
     background-color: #e9e8e8;
     border-radius: 4px;
     position: absolute;
-    width: 110em;
-    height: 36em;
 }
 
 .card.left {
+    width: 110em;
+    height: 36em;
     transform: rotate(42deg) translate(-34em, -16px);
     box-shadow: 5px 0px 20px 6px rgb(93 114 149 / 39%);
 }
 
 .card.right {
-    transform: skew(13deg) translate(44em, 18px);
+    width: 80em;
+    height: 40em;
+    transform: skew(13deg) translate(32em, 18px);
     box-shadow: 3px 0px 20px 11px rgb(28 61 24 / 52%);
 }
 

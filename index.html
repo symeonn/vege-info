@@ -7,16 +7,109 @@
 </head>
 <body>
 
+<div id="vege">
+    <span class="close" onmousedown="closePanel(this)">XXXXX</span>
+</div>
 <div class="container">
-    <div class="panel left">
-        <span class="card left"></span>
-        <div class="text-left">Vege</div>
+
+    <div class="panel vege" tabindex="0" onmousedown="onVegeClick(this)">
+        <div class="text-vege">Vege</div>
     </div>
 
-    <div class="panel right">
-        <span class="card right"></span>
-        <div class="text-left">Vegan</div>
+    <div class="panel vegan" tabindex="0" onmousedown="onVeganClick(this)">
+        <span class="text-vegan">Vegan
+
+<!--                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Vegetarian_diet.jpg/330px-Vegetarian_diet.jpg">-->
+</span>
     </div>
 </div>
+
+<script>
+    function onVegeClick(x) {
+        if(mobileCheck()){
+            onTopPanelClick(x)
+        }else{
+            onLeftPanelClick(x);
+        }
+    }
+
+    function onVeganClick(x) {
+        if(mobileCheck()){
+            onBottomPanelClick(x)
+        }else{
+            onRightPanelClick(x);
+        }
+    }
+
+    function onBottomPanelClick(x) {
+        closeBtn = document.getElementById("vege");
+        closeBtn.style.display="block";
+
+        x.style.height = "100%";
+
+        vege = document.getElementsByClassName("panel vege")[0];
+        vege.style.height = "0%";
+        vege.children[0].style.display = "none";
+    }
+
+    function onRightPanelClick(x) {
+        closeBtn = document.getElementById("vege");
+        closeBtn.style.display="block";
+
+        x.style.width = "100%";
+
+        vege = document.getElementsByClassName("panel vege")[0];
+        vege.style.width = "0%";
+        vege.children[0].style.display = "none";
+    }
+
+    function onTopPanelClick(x) {
+        closeBtn = document.getElementById("vege");
+        closeBtn.style.display="block";
+
+        x.style.height = "100%";
+
+        vegan = document.getElementsByClassName("panel vegan")[0];
+        vegan.style.height = "0%";
+        vegan.children[0].style.display = "none";
+    }
+
+    function onLeftPanelClick(x) {
+        closeBtn = document.getElementById("vege");
+        closeBtn.style.display="block";
+
+        x.style.width = "100%";
+
+        vegan = document.getElementsByClassName("panel vegan")[0];
+        vegan.style.width = "0%";
+        vegan.children[0].style.display = "none";
+    }
+
+    function closePanel(x) {
+
+        vegan = document.getElementsByClassName("panel vegan")[0];
+        vege = document.getElementsByClassName("panel vege")[0];
+
+        if(mobileCheck()){
+            vegan.style.height = null;
+            vege.style.height = null;
+        }else{
+            vegan.style.width = null;
+            vege.style.width = null;
+        }
+
+        vegan.children[0].style.display = "block";
+        vege.children[0].style.display = "block";
+
+        closeBtn = document.getElementById("vege");
+        closeBtn.style.display="none";
+    }
+
+    window.mobileCheck = function() {
+        return /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    };
+
+}
+</script>
 </body>
 </html>

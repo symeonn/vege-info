@@ -45,7 +45,13 @@ html, body {
     position: absolute;
     margin-left: 50%;
     margin-right: 50%;
-    z-index: 110;
+    padding-top: 5vh;
+    opacity: 0.6;
+    z-index: 10;
+}
+
+.close i {
+    font-size: 3em;
 }
 
 #vege {
@@ -84,6 +90,10 @@ html, body {
         background-image: linear-gradient(to bottom, #aee0ea 50%, #48942b 50%);
         height: 100vh;
         flex-direction: column;
+    }
+
+    .close i {
+        font-size: 4em;
     }
 
 }
